@@ -1,0 +1,40 @@
+.footer{
+    height: fit-content;
+    text-align: center;
+    background-color:#202370;
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    color:white;
+    padding-top:1%;
+    padding-bottom: 1%;
+    font-size: large;
+    margin-top: 2%;
+}
+
+.footer-items{
+    padding:1%;
+    
+}
+.footer-items i{
+    padding: 10px 6px;
+    color:white
+}
+
+.footer-items .footericon:hover{
+    color: #C0D62F;
+}
+
+@media only screen and (max-width: 700px) {
+    /* .card{
+        margin-bottom: 5% !important;
+        float: none;
+        margin: 0 auto;
+      } */
+
+  .footer{
+  display: grid;
+  grid-template-columns: auto !important;
+  padding-top: 2%;
+
+      }
+    }

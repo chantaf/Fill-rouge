@@ -1,0 +1,33 @@
+
+    h6{font-size:0.9rem}
+    h5{font-size:1rem}
+    h4{font-size:1.2rem}
+    h3{font-size:1.3rem}
+    h2{font-size:1.4rem}
+    h1{font-size:1.5rem}
+    .mybtn{background:#fff;cursor:pointer;color:#0635C9}
+    .mybtn:focus{outline:none}
+    .mybtn:hover{color:#fff;background:#0635C9;-webkit-transition:all 150ms ease-in;transition:all 150ms ease-in}
+    .mybtn-icon{background:#fff;cursor:pointer;color:#0635C9}
+    .mybtn-icon:focus{outline:none}
+    .mybtn-icon:hover{color:#fff;background:#E2FFF9;-webkit-transition:all 150ms ease-in;transition:all 150ms ease-in}
+    .btn-img{width:20px}
+    .table-img{height:29px}
+    .primary-border{border:2px solid #0635C9}
+    .secondary-border{border:1px solid #0635C9}
+    .primary-raduis{border-radius:10px}
+    .secondary-raduis{border-radius:5px}
+    .size-btn{width:12rem;height:2rem}
+    .size-btn-card{width:6rem;height:2rem}
+    input:focus{outline:none}
+    .form-control:focus{-webkit-box-shadow:none;box-shadow:none}
+    .card-header{background-color:#E2FFF9}
+    .form-control:focus{-webkit-box-shadow:none;box-shadow:none}
+    .shadow_card{-webkit-box-shadow:3px 3px 9px 5px rgba(0,0,0,0.12);box-shadow:3px 3px 9px 5px rgba(0,0,0,0.12)}
+    #mon_compte .mybtn-icon .btn-img{width:25px}
+    #mon_compte .user-image{text-align:center}
+    #mon_compte .user-image img{border-radius:6rem;width:11%;margin-top:-3%;background-color:#E2FFF9}
+    #mon_compte .line{width:10rem;height:3px;background:#C0D62F;margin-bottom:2rem}
+
+
+
