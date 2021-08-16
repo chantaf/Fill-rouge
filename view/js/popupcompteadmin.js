@@ -1,13 +1,13 @@
 
 
 
-function modifier(id,nom,prenom,password,role){
+function modifier(id,nom,prenom,email,password,role){
     
     var divpopup=document.getElementById("popupmodifier");
     divpopup.innerHTML=`<div id="editModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-        <form action="http://localhost/fill-rouge/compteadmin/update" method="POST" enctype="multipart/form-data">
+        <form action="http://localhost/fill-rouge/compteadmin/update" method="POST">
 				<div class="modal-header">						
 					<h4 class="modal-title">Modifier Produit</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -20,6 +20,10 @@ function modifier(id,nom,prenom,password,role){
 					<div class="form-group">
 						<label>Prenom</label>
 						<input type="text" name="prenom" value="`+prenom+`" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="text" name="email" value="`+email+`" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Password</label>
@@ -35,7 +39,7 @@ function modifier(id,nom,prenom,password,role){
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler">
 					<input type="text" name="id" value="`+id+`" hidden>
-					<input type="submit" class="btn btn-info"  value="Enregistrer">
+					<input type="submit" name="update" class="btn btn-info"  value="Enregistrer">
 				</div>
 			</form>
 		</div>

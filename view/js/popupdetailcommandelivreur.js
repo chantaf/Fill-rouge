@@ -17,7 +17,7 @@ function modifier(id,etat){
 						
 					</div>
 
-                  <select name="etat" class="form-control" >
+                  <select name="etat" class="form-control" required>
                   <option value="">changer etat</option>
                   
                           <option value='livrer'>livrer</option>

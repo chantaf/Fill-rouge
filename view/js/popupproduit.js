@@ -1,9 +1,5 @@
 
 
-
-
-
-
 function supprimer(id){
     
     var divpopup=document.getElementById("popupsupprimer");

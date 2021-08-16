@@ -1,20 +1,18 @@
-<link rel="stylesheet" href="http://localhost/fill-rouge/view/css/styleproduituser.css">
+<link rel="stylesheet" href="<?= LIEN ?>view/css/styleproduituser.css">
   <!-- debut slide -->
 
   <div id="carouselExampleControls" class="carousel slide slide1" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="http://localhost/fill-rouge/view/img-slide/m1.png" class="d-block w-100" alt="...">
+        <img src="<?= LIEN ?>view/img-slide/1.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="http://localhost/fill-rouge/view/img-slide/m2.png" class="d-block w-100" alt="...">
+        <img src="<?= LIEN ?>view/img-slide/2.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="http://localhost/fill-rouge/view/img-slide/m3.png" class="d-block w-100" alt="...">
+        <img src="<?= LIEN ?>view/img-slide/3.jpg" class="d-block w-100" alt="...">
       </div>
-      <div class="carousel-item">
-        <img src="http://localhost/fill-rouge/view/img-slide/m4.png" class="d-block w-100" alt="...">
-      </div>
+      
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,27 +30,27 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-sm divinfo">
+        <div class="col-md divinfo">
           <div class="service-info">
             <div class="iconinfo"><i class="fa fa-bus"></i></div>
             <div class="titreinfo">
               <h3 class="titreinfo1"><a href=""> Livraison en moins de 24h</a></h3>
-              <p class="desc">Grand Casablanca (sauf le dimanche)</p>
+              <p class="desc">SAFI</p>
             </div>
           </div>
         </div>
 
-        <div class="col-sm divinfo">
+        <div class=" col-md  divinfo">
           <div class="service-info">
             <div class="iconinfo"><i class="fa fa-volume-control-phone"></i></div>
             <div class="titreinfo">
               <h3 class="titreinfo1"><a href=""> Service client</a></h3>
-              <p class="desc">0662 704705 / 0664 403400</p>
+              <p class="desc">0662 700000 / 0664 400000</p>
             </div>
           </div>
         </div>
 
-        <div class="col-sm divinfo">
+        <div class=" col-md  divinfo">
           <div class="service-info">
             <div class="iconinfo"><i class="fa fa-refresh"></i> </div>
             <div class="titreinfo">
@@ -62,7 +60,7 @@
           </div>
         </div>
 
-        <div class="col-sm divinfo">
+        <div class=" col-md  divinfo">
           <div class="service-info">
             <div class="iconinfo"><i class="fa fa-gift"></i> </div>
             <div class="titreinfo">
@@ -78,16 +76,16 @@
   </section>
 
   <!-- fin information -->
+
   <!-- debut legume -->
   <h2 class="titre">LÉGUMES DU JOUR</h2>
   <div class="page">
-    <!--For Row containing all card-->
     <div class="row">
     <?php
          $cmp=0;
    foreach($resultlegumes as $res){?>
         <!--Card -->
-        <div class="col-sm d-flex justify-content-center  cardslegume a<?php  echo $res['id'] ?>">
+        <div class="col-sm   cardslegume a<?php  echo $res['id'] ?>">
         <span id="id_produit<?=$cmp?>" hidden><?php  echo $res['id'] ?></span>
             <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
                 <!--Card image-->
@@ -108,7 +106,7 @@
                     <!--Card footer-->
                     <div class="card-footer">
                         <button class="card-footer btnadd text-white" onclick="ajouterpanier(<?=$cmp?>)">Ajouter au panier</button>
-                       <!--  <p onclick="">ADD TO CART</p> -->
+          
                     </div>
                 </div>
             </div>
@@ -123,13 +121,12 @@
   <h2 class="titre">HERBES</h2>
 
   <div class="page">
-    <!--For Row containing all card-->
     <div class="row">
     <?php
          $cmp=0;
    foreach($resultherbes as $res){?>
         <!--Card -->
-        <div class="col-sm d-flex justify-content-center  cardslegume a<?php  echo $res['id'] ?>">
+        <div class="col-sm   cardslegume a<?php  echo $res['id'] ?>">
         <span id="id_produit<?=$cmp?>" hidden><?php  echo $res['id'] ?></span>
             <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
                 <!--Card image-->
@@ -150,7 +147,7 @@
                     <!--Card footer-->
                     <div class="card-footer">
                         <button class="card-footer btnadd text-white" onclick="ajouterpanier(<?=$cmp?>)">Ajouter au panier</button>
-                       <!--  <p onclick="">ADD TO CART</p> -->
+                     
                     </div>
                 </div>
             </div>
@@ -165,13 +162,12 @@
   <!-- debut fruit -->
   <h2 class="titre">FRUITS FRAIS</h2>
   <div class="page">
-    <!--For Row containing all card-->
     <div class="row">
     <?php
          $cmp=0;
    foreach($resultfruits as $res){?>
         <!--Card -->
-        <div class="col-sm d-flex justify-content-center  cardslegume a<?php  echo $res['id'] ?>">
+        <div class="col-sm   cardslegume a<?php  echo $res['id'] ?>">
         <span id="id_produit<?=$cmp?>" hidden><?php  echo $res['id'] ?></span>
             <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
                 <!--Card image-->
@@ -192,7 +188,7 @@
                     <!--Card footer-->
                     <div class="card-footer">
                         <button class="card-footer btnadd text-white" onclick="ajouterpanier(<?=$cmp?>)">Ajouter au panier</button>
-                       <!--  <p onclick="">ADD TO CART</p> -->
+                      
                     </div>
                 </div>
             </div>
@@ -206,13 +202,13 @@
   <!-- debut panier -->
   <h2 class="titre">NOS PANIERS</h2>
   <div class="page">
-    <!--For Row containing all card-->
+  
     <div class="row">
     <?php
          $cmp=0;
    foreach($resultpanier as $res){?>
         <!--Card -->
-        <div class="col-sm d-flex justify-content-center   cardslegume a<?php  echo $res['id'] ?>">
+        <div class="col-sm  cardslegume a<?php  echo $res['id'] ?>">
         <span id="id_produit<?=$cmp?>" hidden><?php  echo $res['id'] ?></span>
             <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
                 <!--Card image-->
@@ -233,7 +229,7 @@
                     <!--Card footer-->
                     <div class="card-footer">
                         <button class="card-footer btnadd text-white" onclick="ajouterpanier(<?=$cmp?>)">Ajouter au panier</button>
-                       <!--  <p onclick="">ADD TO CART</p> -->
+                      
                     </div>
                 </div>
             </div>
@@ -256,8 +252,8 @@
   <!-- fin popup -->
 
 
-  <script src="http://localhost/fill-rouge/view/js/panier.js"></script>
-  <script src="http://localhost/fill-rouge/view/js/popupproduituser.js"></script>
+  <script src="<?= LIEN ?>view/js/panier.js"></script>
+  <script src="<?= LIEN ?>view/js/popupproduituser.js"></script>
   <script>
 
 

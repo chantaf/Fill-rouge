@@ -26,7 +26,6 @@ function ajouterpanier(e,qte=1){
 var id_produit=document.getElementById('id_produit'+e).innerText;
 var titre_produit=document.getElementById('titre_produit'+e).innerText;
 var prix_produit=document.getElementById('prix'+e).innerText;
-// var qte_produit=document.getElementById('qte'+e).value;
 var image_produit=document.getElementById('image_produit'+e).innerText;
 var exist=false;
 
@@ -91,6 +90,7 @@ function calculertotal(){
 }
 
 
+//afficher total a payer
 
 function getpanierItemsCount(){
 
@@ -100,6 +100,7 @@ function getpanierItemsCount(){
 
 
 
+//recalculer panier
 function recalculatepanierItem(index){
 	
 	var nqte= document.getElementById('nqte'+index).value;
@@ -112,9 +113,10 @@ function recalculatepanierItem(index){
 
 }
 
+//enregister les produit dans element div
+
 function setInput()
 {
-	// afficherpanier();
 	var commande="";
 	for(i=0;i<userpanier.length;i++){
 		commande+=`
@@ -136,6 +138,8 @@ function setInput()
 
 }
 
+
+//remplire table panier (html)
 function afficherpanier(){
 	chargeUserpanier();
 	var panier="";
@@ -150,11 +154,11 @@ function afficherpanier(){
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">`+userpanier[i].prix+`</td>
+							<td data-th="Price" >`+userpanier[i].prix+`</td>
 							<td data-th="Quantity">
 								<input type="number" id="nqte`+i+`" class="form-control text-center" value="`+userpanier[i].qte+`" min="1" oninput="recalculatepanierItem(`+i+`,this)">
 							</td>
-							<td data-th="Subtotal">`+(userpanier[i].prix*userpanier[i].qte)+` DH</td>
+							<td data-th="Subtotal" class="hidden-xs text-center" >`+(userpanier[i].prix*userpanier[i].qte)+` DH</td>
 							<td class="actions" data-th="">
 								<button class="btn btn-danger btn-sm text-center" onclick="removeFrompanier(`+i+`)"><i class="fa fa-trash-o"></i></button>								
 							</td>

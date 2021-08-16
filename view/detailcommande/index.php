@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://localhost/fill-rouge/view/css/styletabledashbord.css">
+<link rel="stylesheet" type="text/css" href="<?= LIEN ?>view/css/styletabledashbord.css">
 
 
 <?php 
@@ -128,7 +128,7 @@
     divpopup.innerHTML=`<div id="editModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-        <form action="http://localhost/fill-rouge/commande/update" method="post">
+        <form action="<?= LIEN ?>commande/update" method="post">
 				<div class="modal-header">						
 					<h4 class="modal-title">Modifier Etat Commande</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -155,7 +155,7 @@
                   ?> 
 				   <div class="form-group">
 						<label>Etat</label>
-                    <select  class="form-control" name="etat"  ">
+                    <select  class="form-control" name="etat"  required>
                          <option value="">changer etat</option>
 
                             <option  style="display: <?=$livreur1?>;" value='confirmer'>confirmer</option>
@@ -168,7 +168,7 @@
 
 					<div class="form-group">
 						<label>Livreur</label>
-             <select class="form-control" <?=$livreur?> name="livreur" >
+             <select class="form-control" <?=$livreur?> name="livreur" required >
                          <option value="">choisir levreur</option>
                         <?php foreach($resultlivreur as $re){?>
 

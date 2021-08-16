@@ -1,5 +1,7 @@
 
-      
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}  
  /* css titre cards*/
        .titre{
         text-align: center;
@@ -342,13 +344,7 @@ right: 20px;
 transform: translateY(-50%);
 }
 
-/* section {
-padding: 6rem;
-background: #e4e4e4;
-margin-bottom: 30px;
-position: relative;
-z-index: 1;
-} */
+
 
 .overlay {
 background: rgba(0, 0, 0, 0.7);
@@ -442,6 +438,6 @@ right: 0;
 
  
 
-}
+
 
 

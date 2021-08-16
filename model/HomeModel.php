@@ -9,7 +9,7 @@
         // select
         function getlegume(){
             
-            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.libelle='Legumes' LIMIT 4";
+            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.categorie='Legumes' LIMIT 4";
             $Nobjet = new connection();
             $con=$Nobjet->connect();
             $result= $con->query($query);
@@ -20,7 +20,7 @@
 
         function getfruit(){
             
-            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.libelle='Fruits' LIMIT 4";
+            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.categorie='Fruits' LIMIT 4";
             $Nobjet = new connection();
             $con=$Nobjet->connect();
             $result= $con->query($query);
@@ -31,7 +31,7 @@
 
         function getherbes(){
             
-            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.libelle='Herbes' LIMIT 4";
+            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.categorie='Herbes' LIMIT 4";
             $Nobjet = new connection();
             $con=$Nobjet->connect();
             $result= $con->query($query);
@@ -41,7 +41,7 @@
 
         function getpanier(){
             
-            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.libelle='Panier-Mix' LIMIT 4";
+            $query ="SELECT produit.* FROM `produit`,`categorie` where produit.idcategorie=categorie.id and categorie.categorie='Panier-Mix' LIMIT 4";
             $Nobjet = new connection();
             $con=$Nobjet->connect();
             $result= $con->query($query);

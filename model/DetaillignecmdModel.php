@@ -8,7 +8,7 @@
 
         function getAll($idclient,$idcmd){
             
-            $query ="SELECT commande.id as 'idcmd',produit.titre,produit.description,lignecmd.quantite 
+            $query ="SELECT commande.id as 'idcmd',produit.titre,produit.description,lignecmd.quantite,commande.etat
             FROM `produit`,`lignecmd`,`commande`
              WHERE produit.id =lignecmd.idproduit 
              and lignecmd.idcmd=commande.id 

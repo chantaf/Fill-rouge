@@ -1,0 +1,41 @@
+.aboutus-section {
+    padding: 116px 0;
+
+}
+.aboutus-title1 {
+    text-align: center;
+    margin-top: -6%;
+}
+.aboutus-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #000;
+ 
+}
+.aboutus-text {
+    color: #606060;
+    font-size: 20px;
+
+}
+
+.aboutus{
+    margin-top: 12%;
+}
+
+a:hover, a:active {
+    color: #ffb901;
+    text-decoration: none;
+    outline: 0;
+}
+
+.image{
+
+    height: 25em;
+    margin-top: 5%;
+    border-radius: 10px;
+    
+}
+#divtext{
+    height: 23em;
+}

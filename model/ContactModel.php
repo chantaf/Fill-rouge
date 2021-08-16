@@ -28,4 +28,16 @@
             
         }
 
+
+          //update
+          function update($id){
+            
+            $query="UPDATE `contact` SET `etat`='repender' WHERE id=$id";
+            $Nobjet = new connection();
+            $con=$Nobjet->connect();
+            $result= $con->query($query);
+            return $con->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
+        }
+
     }

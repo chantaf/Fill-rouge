@@ -7,17 +7,16 @@ class Commandeuser
 	
 	function index()
 	{
-		// session_start();
+		
 		if (!empty($_SESSION['email'])){
 			require_once "./view/header.php";
 			require_once __DIR__.'/../view/commandeuser/index.php';
 			require_once "./view/footer.php";
 		}else{
-			// header("location: http://localhost/fill-rouge/login/");
-			echo "<script>
-					alert('authentifie');
-					window.location.href='http://localhost/fill-rouge/login/';
-					</script>";
+
+			header("location:".LIEN."login/");
+			
+				
 		}
 		
 			
@@ -33,7 +32,7 @@ class Commandeuser
 					echo "
 					<script>
 					alert('tel incorecte cree sous form 0600000000');
-					window.location.href='http://localhost/fill-rouge/commandeuser/';
+					window.location.href='".LIEN."commandeuser/';
 					</script>";
 				}else{
 					$idComd=$commander->insert($_POST['adress'],$_POST['tel'],$_POST['prixtotal']);
@@ -47,18 +46,17 @@ class Commandeuser
 				if($commander==true){
 					echo "
 					<script>
-					alert('commande avec seccus');
+					alert('commander avec seccus');
 					localStorage.setItem('panier',JSON.stringify([]));
-					window.location.href='http://localhost/fill-rouge/';
+					window.location.href='".LIEN."';
 					</script>";
 				}else{
 					echo "<script>
 					alert('commande refuser');
-					window.location.href='http://localhost/fill-rouge/commandeuser';
+					window.location.href='".LIEN."commandeuser';
 					</script>";
 				}
-				// echo '<script>alert("Welcome to Geeks for Geeks")</script>'; 
-                // header("location:http://localhost/fill-rouge/");
+				
 				
 				
 
@@ -70,19 +68,6 @@ class Commandeuser
 	}
 
 
-	
-
-	// function delete()
-	// {
-	// 	if(isset($_POST['supprimer'])){
-
-	// 		$legume=new ContactModel();
-	// 		$legume->Delete($_POST['id']);
-	// 		header("location:http://localhost/fill-rouge/contact/");
-
-
-	// 	}
-	// }
 
 }
 

@@ -18,7 +18,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <script src="https://kit.fontawesome.com/85b095fcc2.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="http://localhost/fill-rouge/view/css/styleheader.css">
+<link rel="stylesheet" href="<?= LIEN ?>view/css/styleheader.css">
 
 
 <title>Site</title>
@@ -35,30 +35,45 @@
     </button>
 
     <a class="navbar-brand" href="">
-      <img src="http://localhost/fill-rouge/view/img-logo/logo.png" class="imglogo" alt="#" >
+      <img src="<?= LIEN ?>view/img-logo/logo.png" class="imglogo" alt="#" >
     </a>
 
     <ul class="navbar-nav ml-auto d-block d-md-none">
       <li class="nav-item">
-        <a class="btn btn-link btncoloricon" href="http://localhost/fill-rouge/panier/"><i class="fas fa-shopping-cart btncoloricon"></i> <span class="badge badge-danger" id="countarticle">0</span></a>
+        <a class="btn btn-link btncoloricon" href="<?= LIEN ?>panier/"><i class="fas fa-shopping-cart btncoloricon"></i> <span class="badge badge-danger" id="countarticle">0</span></a>
       </li>
     </ul>
 
   <div class="collapse navbar-collapse">
    
         <span class="form-inline d-flex  my-2 my-lg-0 mx-auto"> 
-        <input class="form-control cardselect" type="search" placeholder="Search for products..." aria-label="Search" onclick="cherchevide()">
+        <input class="form-control cardselect" type="search" placeholder="Recherche..." aria-label="Search" onclick="cherchevide()">
         <button class="btn  btnrecherche my-2 my-sm-0" onclick="filterage()" ><i class="fas fa-search"></i></button>
         </span>
 
       <ul class="navbar-nav">
 
         <li class="nav-item">
-          <a class="btn btn-link btncoloricon" href="http://localhost/fill-rouge/panier/"><i class="fas fa-shopping-cart btncoloricon"></i> <span class="badge badge-danger" id="countarticle1">0</span></a>
+          <a class="btn btn-link btncoloricon" href="<?= LIEN ?>panier/"><i class="fas fa-shopping-cart btncoloricon"></i> <span class="badge badge-danger" id="countarticle1">0</span></a>
         </li>
 
         <li class="nav-item ml-md-3">
-          <a class="btn  btnlogin" href="http://localhost/fill-rouge/login/"><i class="fas fa-user-circle"></i> Log In / Register</a>
+        <?php 
+            
+            if(empty($_SESSION['email'])){
+              $etat="none";
+              $etat1="block";
+            }else{
+              $etat="block"; 
+              $etat1="none";
+            }
+             
+            ?>
+
+          <a class="btn  btnlogin" href="<?= LIEN ?>login/" style="display:<?=$etat1?> ;"><i class="fas fa-user-circle"></i> Log In / Register</a>
+          <form action="<?= LIEN ?>login/logout" method="post">
+            <button class="btn  btnlogin" type="submit" name="logout" style="display:<?=$etat?> ;"><i class="fas fa-user-circle"></i> Log out</button>
+          </form>
         </li>
       </ul>
     </div>
@@ -82,8 +97,8 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="<?= LIEN ?>produit/categorie/Legumes">LÉGUMES</a></li>
-              <li><a class="dropdown-item" href="<?= LIEN ?>produit/categorie/Herbes">FRUITS</a></li>
-              <li><a class="dropdown-item" href="<?= LIEN ?>produit/categorie/Fruits">HERBES</a></li>
+              <li><a class="dropdown-item" href="<?= LIEN ?>produit/categorie/Fruits">FRUITS</a></li>
+              <li><a class="dropdown-item" href="<?= LIEN ?>produit/categorie/Herbes">HERBES</a></li>
             </ul>
 
           </li>
@@ -111,7 +126,7 @@
 
         <li class="nav-item d-grid text-center">
           <i class="fas fa-user-circle iconcompte"></i> 
-          <a class="compte" href="http://localhost/fill-rouge/profiluser/">
+          <a class="compte" href="<?= LIEN ?>profiluser/">
           
             
             <?php 
@@ -138,7 +153,7 @@
     <div class="row">
       <div class="col-12 navrecherchresp">
         <span class="form-inline d-flex  my-2 my-lg-0 mx-auto"> 
-          <input class="form-control cardselect" type="search" placeholder="Search for products..."  aria-label="Search" onclick="cherchevide()">
+          <input class="form-control cardselect" type="search" placeholder="Recherche..."  aria-label="Search" onclick="cherchevide()">
           <button class="btn  btnrecherche" onclick="filterage()"><i class="fas fa-search"></i></button>
         </span>
       </div>
@@ -167,7 +182,23 @@
         </div>
       <div class="row align-items-center">
         <div class="col-10 pl-0">
-          <a class="btn btn-primary" href="http://localhost/fill-rouge/login/"><i class="bx bxs-user-circle mr-1"></i> Log In</a>
+        
+          <?php 
+            
+            if(empty($_SESSION['email'])){
+              $etat="none";
+              $etat1="block";
+            }else{
+              $etat="block"; 
+              $etat1="none";
+            }
+             
+            ?>
+
+           <a class="btn btn-primary" href="<?= LIEN ?>login/" style="display:<?=$etat1?> ; width: 80px;"><i class="bx bxs-user-circle mr-1"></i> Log In</a>
+          <form action="<?= LIEN ?>login/logout" method="post">
+            <button class="btn btn-primary" type="submit" name="logout" style="display:<?=$etat?> ;"><i class="fas fa-user-circle"></i> Log out</button>
+          </form>
         </div>
 
         <div class="col-2 text-left">
@@ -225,7 +256,7 @@
 
 <!-- ***********************fin navbar******************** -->
    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-   <script src="http://localhost/fill-rouge/view/js/header.js"></script>
+   <script src="<?= LIEN ?>view/js/header.js"></script>
  
 
 </script>

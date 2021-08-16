@@ -9,7 +9,7 @@
         // select
         function getAll(){
             
-            $query ="SELECT p.* ,c.categorie FROM `produit` p,`categorie` c where p.idcategorie=c.id ORDER BY id DESC limit 8" ;
+            $query ="SELECT p.* ,c.categorie FROM `produit` p,`categorie` c where p.idcategorie=c.id ORDER BY id DESC" ;
             $Nobjet = new connection();
             $con=$Nobjet->connect();
             $result= $con->query($query);
@@ -54,13 +54,24 @@
             if(empty($image)){
             $image=$this->getone($id)[0]["image"];
             }
-            // else{
-            // $image=$this->getone($id)[0]["image"];
-            // unlink($image);
-            // die();
-            // }
+           
 
             $query = "UPDATE `produit` SET `titre`='$titre' ,`prix`= $prix ,`description`='$description' ,`image`= '$image',`idcategorie`=$categorie WHERE id=$id";
+            $Nobjet = new connection();
+            $con=$Nobjet->connect();
+            $result= $con->query($query);
+            return $result->fetch(PDO::FETCH_ASSOC);
+        }
+
+
+        function update1($id,$titre,$prix,$description,$image){
+        
+            if(empty($image)){
+            $image=$this->getone($id)[0]["image"];
+            }
+           
+
+            $query = "UPDATE `produit` SET `titre`='$titre' ,`prix`= $prix ,`description`='$description' ,`image`= '$image' WHERE id=$id";
             $Nobjet = new connection();
             $con=$Nobjet->connect();
             $result= $con->query($query);

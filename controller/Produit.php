@@ -7,21 +7,19 @@ class Produit
 
 	function index()
 	{
-		// session_start();
 		if (!empty($_SESSION['email']) && ($_SESSION['role']=="admin")) {
 			$objet = new ProduitModel();
 			$result = $objet->getAll();
 			$resultcat=$objet->getAllcat();
 			$mns=["","","active","","","",""];
-			// die(print_r($result));
 			require_once "./view/sidedashbord.php";
 			require_once __DIR__ . '/../view/produit/index.php';
 		} else {
 			echo "<script>
 					alert('acces pour admin');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";
-			// header("location: http://localhost/fill-rouge/login/");
+			
 		}
 	}
 
@@ -41,7 +39,7 @@ class Produit
 		if($ver==1){
 			echo "<script>
 					alert('produit deja existe');
-					window.location.href='http://localhost/fill-rouge/produit/';
+					window.location.href='".LIEN."produit/';
 					</script>";
 		}else{
 			$targetDir = "uploads/";
@@ -53,7 +51,7 @@ class Produit
 			$produit->insert($_POST['titre'], $_POST['prix'], $_POST['description'], $targetFilePath,$_POST['categorie']);
 			echo "<script>
 					alert('Ajouter avec succes');
-					window.location.href='http://localhost/fill-rouge/produit/';
+					window.location.href='".LIEN."produit/';
 					</script>";
 		}
 
@@ -75,14 +73,18 @@ class Produit
 				$targetFilePath = $targetDir . time() . $fileName;
 
 				move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath);
-				
+			
 			}
-
-			$leg = $produit->update($_POST['id'], $_POST['titre'], $_POST['prix'], $_POST['description'], $targetFilePath,$_POST['categorie']);
+			if($_POST['categorie']==0){
+				$leg = $produit->update1($_POST['id'], $_POST['titre'], $_POST['prix'], $_POST['description'], $targetFilePath);
+			}else{
+				$leg = $produit->update($_POST['id'], $_POST['titre'], $_POST['prix'], $_POST['description'], $targetFilePath,$_POST['categorie']);
+			}
+			
 		
 			echo "<script>
 					alert('Modifer avec succes');
-					window.location.href='http://localhost/fill-rouge/produit/';
+					window.location.href='".LIEN."produit/';
 					</script>";
 		}
 	}
@@ -94,7 +96,7 @@ class Produit
 			$produit->Delete($_POST['id']);
 			echo "<script>
 					alert('supprimer avec succes');
-					window.location.href='http://localhost/fill-rouge/produit/';
+					window.location.href='".LIEN."produit/';
 					</script>";
 			
 		}

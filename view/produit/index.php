@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://localhost/fill-rouge/view/css/styletabledashbord.css">
+<link rel="stylesheet" type="text/css" href="<?= LIEN ?>view/css/styletabledashbord.css">
 
 
 <div class="container totaltable">
@@ -42,7 +42,7 @@
 						
 						<td><?=$res['id'] ?></td>
 						<td><?=$res['titre'] ?></td>
-						<td><?=$res['prix'] ?></td>
+						<td class="col-3" ><?=$res['prix'] ?> DH</td>
 						<td class="col-9 text-left"><?=$res['description'] ?></td>
 						<td><img src="../<?=$res['image'] ?>"  width="80"  alt="*"></td>
 						<td><?=$res['categorie'] ?></td>
@@ -67,7 +67,7 @@
 <div id="addModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-		<form action="http://localhost/fill-rouge/produit/create" method ="POST" enctype="multipart/form-data">
+		<form action="<?= LIEN ?>produit/create" method ="POST" enctype="multipart/form-data">
 				<div class="modal-header">						
 					<h4 class="modal-title">Ajouter Produit</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -79,7 +79,7 @@
 					</div>
 					<div class="form-group">
 						<label>Prix</label>
-						<input type="text" name="prix" class="form-control" required>
+						<input type="number" name="prix" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Description</label>
@@ -93,7 +93,7 @@
 					<div class="form-group">
 						<label>Categorie</label>
 
-						<select name="categorie" class="form-control" id="ex3">
+						<select name="categorie" class="form-control" required>
                                     <option value="">Choisir Categorie</option>
                                         <?php
                             
@@ -129,7 +129,7 @@
     divpopup.innerHTML=`<div id="editModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-        <form action="http://localhost/fill-rouge/produit/update" method="POST" enctype="multipart/form-data">
+        <form action="<?= LIEN ?>produit/update" method="POST" enctype="multipart/form-data">
 				<div class="modal-header">						
 					<h4 class="modal-title">Modifier Produit</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -141,7 +141,7 @@
 					</div>
 					<div class="form-group">
 						<label>Prix</label>
-						<input type="text" name="prix" value="`+prix+`" class="form-control" required>
+						<input type="number" name="prix" value="`+prix+`" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Description</label>
@@ -154,14 +154,12 @@
 					</div>	
 					
 					<div class="form-group">
-					<label>Categorie</label>
-                        <select class="form-control" name="categorie">
-						
-                        <?php foreach($resultcat as $re){?>
+					<label>Categorie Actual:`+categorie+`</label>
+                        <select class="form-control" name="categorie" required>
+						<option value="0">Choisir Categorie</option>
+                        <?php foreach($resultcat as $res){?>
 
-                                            <option value='<?=$re['id'] ?>'
-                                            <?php if($res['categorie']==$re['categorie']){echo "selected='selected'";} ?>
-                                            ><?=$re['categorie'] ?></option>
+                                            <option value='<?=$res['id'] ?>'><?=$res['categorie'] ?></option>
 
                                         <?php } ?>
 
@@ -181,6 +179,6 @@
 
 }
 </script>
-<script src="http://localhost/fill-rouge/view/js/popupproduit.js"></script>
+<script src="<?= LIEN ?>view/js/popupproduit.js"></script>
 </body>
 </html>

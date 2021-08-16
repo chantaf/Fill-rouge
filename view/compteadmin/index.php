@@ -48,7 +48,7 @@
 						<td><?=$res['password'] ?></td>
 						<td><?=$res['role'] ?></td>
 						<td class="d-flex">
-							<a href="#editModal" class="edit" data-toggle="modal" onclick="modifier('<?=$res['id'] ?>','<?=$res['nom'] ?>','<?=$res['prenom'] ?>','<?=$res['password'] ?>','<?=$res['role'] ?>')"><i class="fas fa-edit" title="Modifier"></i></a>
+							<a href="#editModal" class="edit" data-toggle="modal" onclick="modifier('<?=$res['id'] ?>','<?=$res['nom'] ?>','<?=$res['prenom'] ?>','<?=$res['email'] ?>','<?=$res['password'] ?>','<?=$res['role'] ?>')"><i class="fas fa-edit" title="Modifier"></i></a>
 							
 						 	   
 							   <a href="#deleteModal" class="delete" data-toggle="modal"onclick="supprimer('<?=$res['id'] ?>')"><i class="fas fa-trash" title="Supprimer"></i></a>
@@ -68,7 +68,7 @@
 <div id="addModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-		<form action="http://localhost/fill-rouge/compteadmin/create" method ="POST">
+		<form action="<?= LIEN ?>compteadmin/create" method ="POST">
 				<div class="modal-header">						
 					<h4 class="modal-title">Ajouter Compte</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -120,6 +120,6 @@
 </div>
 
 
-<script src="http://localhost/fill-rouge/view/js/popupcompteadmin.js"></script>
+<script src="<?= LIEN ?>view/js/popupcompteadmin.js"></script>
 </body>
 </html>

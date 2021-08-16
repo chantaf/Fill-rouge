@@ -5,9 +5,9 @@
 <div>
 
 
-<div class="container">
-    <form  action="http://localhost/fill-rouge/profiluser/" method="post">
-        <button class="btn btn-dark mb-3 float-right  btn-md ml-3 text-white"><-retour</button>
+<div class="container" style="min-height: 284px;">
+    <form  action="<?= LIEN ?>profiluser/" method="post">
+        <button class="btn btn-dark mb-3 float-right  btn-md ml-3 text-white">< retour</button>
     </form>
     <div class="row">
         <div class="span5">
@@ -51,9 +51,10 @@
                           <td>
 
                            
-                        <form  class="row" action="http://localhost/fill-rouge/detaillignecmd/delete" method="post">
+                        <form  class="row" action="<?= LIEN ?>detaillignecmd/delete" method="post">
                             <input type="hidden" value="<?php echo $res['idcmd'] ?>" name="idcmd">
-                            <button class="btn btn-danger btn-md ml-3 text-white" name="supprimer" >Supprimer</button>
+                            <input type="hidden" value="<?php echo $res['etat'] ?>" name="etat">
+                            <button class="btn btn-danger btn-md ml-3 text-white" style="width: 200px;" name="supprimer" >Supprimer</button>
                             </td>
                         </form>
                               

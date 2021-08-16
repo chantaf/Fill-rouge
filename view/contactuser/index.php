@@ -5,7 +5,7 @@
     <br/><br/><br/>
        
                    
-                    <form action="http://localhost/fill-rouge/contactuser/create" method="post" >
+                    <form action="<?= LIEN ?>contactuser/create" method="post" >
                     <div class="modal-body" style="padding: 5px;">
                           <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
@@ -34,7 +34,7 @@
                         <div class="panel-footer text-center mb-2 mt-3" style="margin-bottom:-14px;">
                             <input   type="submit" class="btn text-white btnloginenvoyer"  name="contact" value="Envoyer"/>
                              
-                            <input type="reset" class="btn btn-danger" value="Vider" />
+                            <input type="reset" class="btn btn-outline-warning" value="Vider" />
                                 
                         </div>
 					</form>
@@ -42,6 +42,6 @@
                 </div> 
         
 
-<script src="http://localhost/fill-rouge/view/js/panier.js"></script>
+<script src="<?= LIEN ?>view/js/panier.js"></script>
 </body>
 </html>

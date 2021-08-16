@@ -1,61 +1,48 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title> -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-  <link rel="stylesheet" href="http://localhost/fill-rouge/view/css/styleprofiluser.css" />
+  <link rel="stylesheet" href="<?= LIEN ?>view/css/styleprofiluser.css" />
 
-<!-- </head> -->
+
 <!-- cdn jquery -->
 <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
   <!-- include header & footer -->
-<script src="../../resources/js/includeTemp.js"></script>
+<!-- <script src="../../resources/js/includeTemp.js"></script> -->
 
 <body  >
   <!-- header -->
 <div id="header"></div>
-  <!--  -->
+
 
     <div id="mon_compte" class="mt-5 mb-5 p-3">
 
 
         <div class="container contact-form primary-border primary-raduis  ">
             <div class="user-image">
-                <img src="http://localhost/fill-rouge/view/img-slide/profil1.png" alt="#" />
+                <img src="<?= LIEN ?>view/img-slide/profil1.png" alt="#" />
             </div>
             <div class="p-5 row information">
                 <div class="col-12 d-flex flex-column align-items-center">
                     <h3 class="">INFORMATIONS PERSONELLES</h3>
-                    <div class="line  mt-3"></div>
+                    <div class="line mt-3 "></div>
                 </div>
                 <?php foreach($result as $res){?>
-                <div class="col-lg-6  col-12 ps-lg-5">
+                <div class="col-lg-12 col-12 ps-lg-5 text-center mb-5">
 
                     <h5>Nom : <span> <?= $res['nom'] ?></span></h5>
                     <h5>Prenom : <span><?= $res['prenom'] ?></span></h5>
-                    <!-- <h5>Telephone : <span>0621409091</span></h5>
-                    <h5>Genre : <span>Homme</span></h5> -->
-
-                </div>
-                <div class="col-lg-12 col-12 ps-lg-5">
-
                     <h5>Email ou Tel : <span><?= $res['email'] ?></span></h5>
-                    <!-- <h5>Address 1 : <span>87 RUE ZEPIFZ QU ZFNUOZE OIRJ</span></h5>
-                    <h5>Address 2 : <span>87 RUE ZEPIFZ QU ZFNUOZE OIRJ</span></h5> -->
+                    
+
                 </div>
+                
                 <div class="col-lg-3 col-6 m-auto mt-2">
                 
                     <button data-bs-toggle="modal" data-bs-target="#exampleModal"
                         class="mybtn size-btn w-100  secondary-border secondary-raduis mb-2">Modifier</button>
                        
-                    <form  action="http://localhost/fill-rouge/profiluser/delete" method="post">
+                    <form  action="<?= LIEN ?>profiluser/delete" method="post">
                     <button type="submit" name="supprimer" data-bs-toggle="modal" 
                         class="mybtn size-btn w-100  secondary-border secondary-raduis">Supprimer compte</button>
                     </form>
@@ -65,7 +52,7 @@
                     <button data-bs-toggle="modal" data-bs-target="#exampleModale"
                         class="mybtn size-btn w-100  secondary-border secondary-raduis mb-2">Changer Password</button>
                        
-                 <form action="http://localhost/fill-rouge/profiluser/logout" method="post">
+                 <form action="<?= LIEN ?>login/logout" method="post">
                     <button type="submit" name="logout" data-bs-toggle="modal" 
                         class="mybtn size-btn w-100  secondary-border secondary-raduis">Se deconnecter</button>
                 </form>
@@ -79,7 +66,7 @@
 
 
         <!-- Modal password-->
-        <form method="post" action="http://localhost/fill-rouge/profiluser/updatepassword">
+        <form method="post" action="<?= LIEN ?>profiluser/updatepassword">
         <div class="modal fade" id="exampleModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content primary-border">
@@ -121,7 +108,7 @@
 
 
          <!-- Modal infos -->
-         <form method="post" action="http://localhost/fill-rouge/profiluser/update">
+         <form method="post" action="<?= LIEN ?>profiluser/update">
          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content primary-border">
@@ -131,7 +118,7 @@
                             data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times-circle"></i></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <form action=""> -->
+                       
                             <div class="row">
                                 <div class="col-6">
                                     <label for="nom" class="mt-1"> Nom : </label>
@@ -151,7 +138,7 @@
                                         value="<?= $res['email']?>">
                                 </div>
                             </div>
-                        <!-- </form> -->
+                       
                     </div>
                     <div class="modal-footer">
                     
@@ -164,10 +151,7 @@
         <!-- end modal -->
 
     </div>
-    <!-- Footer -->
-
-<!-- <div id="footer"></div> -->
-    <!-- end footer -->
+   
     <div class="text-center mb-5">
         <h1 class="text-info display-3" > Vos commandes</h1>
     </div>
@@ -186,7 +170,7 @@
                   <th>Tel</th>
                   <th>Prixtotal</th>
                   <th>Etat</th>     
-                  <!-- <th>Action</th>                                      -->
+                 
                   </tr>
               </thead>   
               <tbody>
@@ -208,7 +192,7 @@
         
                             <td class="text-center">
                                 <label   for=""><?php echo $res['etat'] ?></label><input type="hidden" value="<?php echo $res['etat'] ?>" name="etat" >
-                        <form class="row" action="http://localhost/fill-rouge/detaillignecmd/" method="post">
+                        <form class="row" action="<?= LIEN ?>detaillignecmd/" method="post">
                             <input type="hidden" value="<?php echo $res['id'] ?>" name="idcommande">
                             <button class="btn btn-info btn-md ml-3 text-white"  >Detail</button>
                             </td>
@@ -221,29 +205,8 @@
                     } ?>
                                                      
                 </tr>
-                <!-- <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                <form action="http://localhost/fill-rouge/profiluser/deletecommande" method="post">
-                    <td>
-                    <select name="idcmd"  class="form-control">
-                            <option value="">choisir numero commande</option>
-                        <?php
-                           
-                            foreach($resultselect as $re){?>
-                                    
-                                   <option value='<?=$re['idcmd'] ?>'><?=$re['idcmd'] ?></option>
-                                   
 
-                               <?php } ?>
-                           </select> 
-                    </td>
-                    <td>
-                    <button class="btn btn-warning text-white btndelete"  id="btndelet<?=$i?>" name="supprimer">supprimer</button>
-                    </td>
-                    </form> 
-                </tr> -->
+                  
                                              
               </tbody>
             </table>
@@ -253,43 +216,18 @@
 
 
 
-<!-- 
-**************** -->
+
+<!-- **************** -->
 </div>
 
-<!-- modele commande -->
 
-
-
-        <!-- end modal -->
-
-
-<!-- end -->
 
 <div>
-<!-- <td style="display: flex;"> -->
-                     
-                     <!-- <form action="http://localhost/fill-rouge/profiluser/deletecommande" method="post">
-                        <select name="idcmd"  class="selectcommande">
-                            <option value="">choisir id commande</option>
-                        <?php
-                           
-                            foreach($resultselect as $re){?>
-                                    
-                                   <option value='<?=$re['idcmd'] ?>'><?=$re['idcmd'] ?></option>
-                                   
 
-                               <?php } ?>
-                           </select> 
-                     
-                         
-                         <button class="btn btn-danger btndelete"  id="btndelet<?=$i?>" name="supprimer">supprimer</button>
-                     </form>  -->
-                 <!-- </td> -->
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <?php   } ?>
-    <script src="http://localhost/fill-rouge/view/js/panier.js"></script>
+    <script src="<?= LIEN ?>view/js/panier.js"></script>
 </body>
 
 </html>

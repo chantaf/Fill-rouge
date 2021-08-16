@@ -30,9 +30,9 @@
             }
         }
 
-        function getcommande(){
+        function getcommande($id){
 
-            $query ="SELECT * from`commande`";
+            $query ="SELECT * from`commande` where commande.idclient=$id";
              $Nobjet = new connection();
              $con=$Nobjet->connect();
              $result= $con->query($query);
@@ -52,19 +52,6 @@
              return $result->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        // function getselect($id){
-
-        //     $query ="SELECT distinct commande.id as 'idcmd'
-        //     FROM `produit`,`lignecmd`,`commande` 
-        //     WHERE produit.id =lignecmd.idproduit
-        //     and lignecmd.idcmd=commande.id 
-        //     and  commande.etat='commander'
-        //     and commande.idclient=$id";
-        //      $Nobjet = new connection();
-        //      $con=$Nobjet->connect();
-        //      $result= $con->query($query);
-        //      return $result->fetchAll(PDO::FETCH_ASSOC);
-        // }
 
         //delete
         function Delete($id){
@@ -73,6 +60,9 @@
             $con=$Nobjet->connect();
             $con->query($query);
             $_SESSION['nom']="Mon compte";
+            $_SESSION['prenom']="";
+            $_SESSION['email']="";
+
         }
 
         function Deletecommande($id){
@@ -99,10 +89,6 @@
             return $result->fetch(PDO::FETCH_ASSOC);
         }
 
-        function logout(){
-            session_start();
-            session_destroy();
-            
-        }
+      
 
     }

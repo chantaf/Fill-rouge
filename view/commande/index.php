@@ -3,7 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://localhost/fill-rouge/view/css/styletabledashbord.css">
+<link rel="stylesheet" type="text/css" href="<?= LIEN ?>view/css/styletabledashbord.css">
 
 
 <div class="container totaltable">
@@ -45,7 +45,7 @@
 						<td><?=$res['etat'] ?></td>
                         <td><?=$res['prixtotal'] ?></td>
 						<td class="d-flex">
-                        <form action="http://localhost/fill-rouge/detail/" method="post">
+                        <form action="<?= LIEN ?>detail/" method="post">
                             <input type="text" name="idcmd" value="<?= $res['idcmd'] ?>" hidden>
                             <input type="text" name="idclient" value="<?=$res['idclient'] ?>" hidden>
                             <button class="btndetail"><i class="fas fa-info-circle" title="Detail"></i></button>
@@ -73,6 +73,6 @@
 </div>
 
 
-<script src="http://localhost/fill-rouge/view/js/popupcommande.js"></script>
+<script src="<?= LIEN ?>view/js/popupcommande.js"></script>
 </body>
 </html>

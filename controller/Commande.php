@@ -10,16 +10,15 @@ class Commande{
 		if (!empty($_SESSION['email']) && ($_SESSION['role']=="admin" ||$_SESSION['role']=="livreur")) {
 			$objet = new CommandeModel();
 			$result=$objet-> getAll();
-			// $result = $objet->getAll();
-			// $mns=["","","","","","active",""];
+			
 			require_once "./view/sidedashbord.php";
 			require_once __DIR__ . '/../view/commande/index.php';
 		} else {
 			echo "<script>
 					alert('acces pour admin');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";
-			// header("location: http://localhost/fill-rouge/login/");
+			
 		}
 	}
 		
@@ -48,7 +47,7 @@ class Commande{
 						$etat = $compte->update($_POST['idcmd'],"commander");
 						echo "<script>
 					alert('selectionner votre livreur');
-					window.location.href='http://localhost/fill-rouge/commande/';
+					window.location.href='".LIEN."commande/';
 					</script>";
 					}
 					$compte->insertlivrer($_POST['idcmd'],$_POST['livreur']);
@@ -56,9 +55,9 @@ class Commande{
 			
 			}
 			if($_SESSION['role']=="livreur"){
-				header("location:http://localhost/fill-rouge/commandelivreur/");
+				header("location:".LIEN."commandelivreur/");
 			}else{
-				header("location:http://localhost/fill-rouge/commande/");
+				header("location:".LIEN."commande/");
 			}
 
 		
@@ -75,7 +74,7 @@ class Commande{
            
 			echo "<script>
 			alert('Supprimer avec succes');
-			window.location.href='http://localhost/fill-rouge/commande/';
+			window.location.href='".LIEN."commande/';
 			</script>";
 		}
 	}

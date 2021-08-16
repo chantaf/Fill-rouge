@@ -6,7 +6,6 @@ class Apropos
 
 	function index()
 	{
-		// $mnse=["","","","","","active","","",""];
 		$mnse=["produits"=>"","autre"=>"","accueil"=>"","apropos"=>"active","contact"=>"",""];
 		require_once "./view/header.php";
 		require_once __DIR__ . '/../view/apropos/index.php';

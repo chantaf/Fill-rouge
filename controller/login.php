@@ -32,26 +32,26 @@ class Login{
 			if(!preg_match($formemail,$_POST['email']) &&!preg_match($formtel,$_POST['email']) ){
 				echo "<script>
 				alert('email ou tel incorecte cree sous form mail@email.com ou bien 0600000000');
-				window.location.href='http://localhost/fill-rouge/login/';
+				window.location.href='".LIEN."login/';
 				</script>";
 			}
 			else if($ver==1){
 				echo "<script>
 				alert('compte deja exeste');
-				window.location.href='http://localhost/fill-rouge/login/';
+				window.location.href='".LIEN."login/';
 				</script>";
 				
 			}else if($_POST['password']!=$_POST['confpassword'])
 			 {
 				echo "<script>
-					alert('conf  password incorecte');
-					window.location.href='http://localhost/fill-rouge/login/';
+					alert('confirme  password incorecte');
+					window.location.href='".LIEN."login/';
 					</script>";
 			}else{
 				$sign->save($_POST['nom'],$_POST['prenom'],$_POST['email'],md5($_POST['password']));
 				echo "<script>
-					alert('compte cree entre votre compte');
-					window.location.href='http://localhost/fill-rouge/login/';
+					alert('Ajouter avec succes');
+					window.location.href='".LIEN."login/';
 					</script>";
 			}
 			
@@ -85,12 +85,12 @@ class Login{
 		if($ver==0){
 			echo "<script>
 				   alert('login incorecte');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";	
 		}else if ($verpass==1){
 			echo "<script>
 					alert('password incorecte');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";	
 		
 		}else{
@@ -103,10 +103,11 @@ class Login{
 				$_SESSION['nom']=$log[0]['nom'];
 				$_SESSION['prenom']=$log[0]['prenom'];
 				
-					header("location:http://localhost/fill-rouge/");
+					header("location:".LIEN."");
+					
 				
 
-			}else if($log[0]['role']=="admin" || $log[0]['role']=="livreur")	{
+			}else if($log[0]['role']=="admin"){
 				
 				$_SESSION['email']=$log[0]['id'];
 				$_SESSION['role']=$log[0]['role'];
@@ -114,9 +115,16 @@ class Login{
 				$_SESSION['prenom']=$log[0]['prenom'];
 
 
-					header("location:http://localhost/fill-rouge/dashbord/");
+					header("location:".LIEN."dashbord/");
 				
 				
+			}else if($log[0]['role']=="livreur"){
+				
+				$_SESSION['email']=$log[0]['id'];
+				$_SESSION['role']=$log[0]['role'];
+				$_SESSION['nom']=$log[0]['nom'];
+				$_SESSION['prenom']=$log[0]['prenom'];
+				header("location:".LIEN."commandelivreur/");
 			}
 		}
 	}
@@ -133,7 +141,7 @@ class Login{
 		if(isset($_POST['logout'])){
 			$sign=new LoginModel();
 			$sign->logout();
-			header("location:http://localhost/fill-rouge/login/");
+			header("location:".LIEN."login/");
 		}
 	}
 

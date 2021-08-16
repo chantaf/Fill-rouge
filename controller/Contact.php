@@ -7,7 +7,7 @@ class Contact
 	
 	function index()
 	{
-		// session_start();
+		
 		if (!empty($_SESSION['email']) && ($_SESSION['role']=="admin")) {
 			$objet= new ContactModel();
 		$result=$objet-> getAll();
@@ -15,10 +15,10 @@ class Contact
 		require_once "./view/sidedashbord.php";
 		require_once __DIR__.'/../view/contact/index.php';
 		} else {
-			// header("location: http://localhost/fill-rouge/login/");
+			
 			echo "<script>
 					alert('acces pour admin');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";
 		}
 			
@@ -33,12 +33,33 @@ class Contact
 
 			$legume=new ContactModel();
 			$legume->Delete($_POST['id']);
-			header("location:http://localhost/fill-rouge/contact/");
+			header("location:".LIEN."contact/");
 
 
 		}
 	}
 
+
+
+
+	function update()
+		{
+
+				if (isset($_POST['update'])) {
+					$contact= new ContactModel();
+					$contact->update($_POST['id']);
+			header("location:".LIEN."contact/");	
+					
+					
+		}
+	
+
+	
+	}
+
+
 }
+
+
 
 

@@ -1,30 +1,16 @@
 
 
-/* body {
-	margin: 0;
-	padding: 0;
-	background-color: #17a2b8;
-	height: 100vh;
-} */
 #login .container #login-row #login-column #login-box {
 	margin-top:75px;
-	/* max-width: 600px; 
-	 width: 800px;  */
 	height: 20em;
-	/* margin-left: 3px; */
 	border: 1px solid #9C9C9C;
 	border-radius: 10px;
-	/* background-color: #EAEAEA; */
+
 }
-/* #login .container #login-row #login-column #login-box #login-form {
-	padding: 10px;
-} */
-/* #login .container #login-row #login-column #login-box #login-form #register-link {
-	margin-top: -85px;
-} */
+
 #login{
 	height: 444px;
-	/* width: 1500px; */
+
 }
 
 #register-link{
@@ -32,28 +18,3 @@
 	margin-left: 10px;
 }
 
-/* .form-control{
-	width: 290px;
-}
-.inputemail{
-	width:  595px;
-} */
-
-/* @media screen and (max-width: 600px) {
-	#login{
-		height: 444px;
-		width: 500px;
-	}
-
-	
-	.inputemail{
-		width:  290px;
-	}
-
-	#login-box{
-		display: grid;
-	
-	}
-	
-	
-} */

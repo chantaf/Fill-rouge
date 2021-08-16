@@ -7,7 +7,7 @@ class Categorie
 
 	function index()
 	{
-		// session_start();
+		
 		if (!empty($_SESSION['email']) && ($_SESSION['role']=="admin")  ) {
 			$objet = new CategorieModel();
 			$result = $objet->getAll();
@@ -17,9 +17,9 @@ class Categorie
 		} else {
 			echo "<script>
 					alert('acces pour admin');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";
-			// header("location: http://localhost/fill-rouge/login/");
+			
 		}
 	}
 
@@ -39,13 +39,13 @@ class Categorie
 		if($ver==1){
 			echo "<script>
 					alert('Categorie deja existe');
-					window.location.href='http://localhost/fill-rouge/categorie/';
+					window.location.href='".LIEN."categorie/';
 					</script>";
 		}else{
 			$categorier ->insert($_POST['categorie']);
 			echo "<script>
 					alert('Ajoute avec succes');
-					window.location.href='http://localhost/fill-rouge/categorie/';
+					window.location.href='".LIEN."categorie/';
 					</script>";
 		}
 		
@@ -60,7 +60,8 @@ class Categorie
 			$cat = $categorie->update($_POST['id'],$_POST['categorie']);
 			echo "<script>
 					alert('Modifie avec succes');
-					window.location.href='http://localhost/fill-rouge/categorie/';
+					window.location.href='".LIEN."categorie/';
+					
 					</script>";
 			
 		}
@@ -74,7 +75,7 @@ class Categorie
 			$categorie->Delete($_POST['id']);
 			echo "<script>
 			alert('Supprimer avec succes');
-			window.location.href='http://localhost/fill-rouge/categorie/';
+			window.location.href='".LIEN."categorie/';
 			</script>";
 		}
 	}

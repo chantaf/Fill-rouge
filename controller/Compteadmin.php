@@ -10,16 +10,14 @@ class Compteadmin{
 		if (!empty($_SESSION['email']) && ($_SESSION['role']=="admin")  ) {
 			$objet = new LoginModel();
 			$result=$objet-> getAll();
-			// $result = $objet->getAll();
 			$mns=["","","","","","active",""];
 			require_once "./view/sidedashbord.php";
 			require_once __DIR__ . '/../view/compteadmin/index.php';
 		} else {
 			echo "<script>
 					alert('acces pour admin');
-					window.location.href='http://localhost/fill-rouge/login/';
+					window.location.href='".LIEN."login/';
 					</script>";
-			// header("location: http://localhost/fill-rouge/login/");
 		}
 	}
 		
@@ -43,13 +41,13 @@ class Compteadmin{
 			if($ver==1){
 				echo "<script>
 				alert('le compte deja existe');
-				window.location.href='http://localhost/fill-rouge/compteadmin/';
+				window.location.href='".LIEN."compteadmin/';
 				</script>";
 			}else{
 				$sign->saveadmin($_POST['nom'],$_POST['prenom'],$_POST['email'],md5($_POST['password']),$_POST['role']);
 			echo "<script>
 			alert('Ajouter avec succes');
-			window.location.href='http://localhost/fill-rouge/compteadmin/';
+			window.location.href='".LIEN."compteadmin/';
 			</script>";
 			}
 			
@@ -68,7 +66,7 @@ class Compteadmin{
 			$leg = $compte->updateadmin($_POST['id'],$_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['password'],$_POST['role']);
             echo "<script>
 				alert('Modifier Avec succes');
-				window.location.href='http://localhost/fill-rouge/compteadmin/';
+				window.location.href='".LIEN."compteadmin/';
 				</script>";
 		 
 		}
@@ -83,7 +81,7 @@ class Compteadmin{
 			$profil->Delete($_POST['id']);
 			echo "<script>
 			alert('Supprimer avec succes');
-			window.location.href='http://localhost/fill-rouge/compteadmin/';
+			window.location.href='".LIEN."compteadmin/';
 			</script>";
 			
 		}

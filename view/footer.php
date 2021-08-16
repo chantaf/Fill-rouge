@@ -1,15 +1,15 @@
-<link rel="stylesheet" href="http://localhost/fill-rouge/view/css/stylefooter.css">
+<link rel="stylesheet" href="<?= LIEN ?>view/css/stylefooter.css">
 <footer>
     <div class="footer">
 
       <div class="footer-items">
         <i class="fas fa-envelope "></i>
-        cartogo@gmail.com
+        ecokhedar@gmail.com
       </div>
 
       <div class="footer-items">
         <i class="fas fa-map-marker-alt "></i>
-        69 Square de la Couronne PARIS
+        12 Rue Andalos Safi
       </div>
 
       <div class="footer-items">
@@ -25,7 +25,7 @@
       </div>
 
       <div class="footer-items">
-        © 2011 John Doe All Rights Reserved
+        © 2021 John Doe All Rights Reserved
       </div>
 
     </div>
@@ -33,5 +33,3 @@
   </footer>
 
 
-  <!-- </body>
-</html> -->
